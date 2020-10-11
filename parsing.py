@@ -2,6 +2,7 @@ import pandas as pd
 from driver.selenium import Driver
 import time
 from datetime import datetime, timedelta
+import os
 
 CompanyList = [
     'PD',
@@ -47,5 +48,6 @@ def company_news_save(company):
 
 
 period = int((datetime.now() - datetime(1970, 1, 1)).total_seconds())
+os.mkdir("yahoo_csv")
 for company in CompanyList:
     company_stats(company, period)
